@@ -101,7 +101,7 @@ peluang <- dpois(x, rata)
 peluang
 ```
 
-### B. simulasikan dan buatlah histogramkelahiran 6 bayi akan lahir dirumah sakit ini selama setahun (n = 365)
+### B. simulasikan dan buatlah histogram kelahiran 6 bayi akan lahir dirumah sakit ini selama setahun (n = 365)
 Dapat menggunakan fungsi hist() seperti nomor sebelumnya, dengan n diubah menjadi 365 yaitu hari dalama setahun
 ```
 rata = 4.5
@@ -118,8 +118,126 @@ hist(rpois(n, rata),
 Peluang kelahiran dalam 1 tahun (poin b) lebih rendah daripada kelahiran pada esok harinya. Akan tetapi probabilitas/peluang yang terjadi tidak bebeda signifikan
 
 ### D. Mencari nilai rataan dan varians dari distribusi poisson
+```
 rata = 4.5
 
 rataan = varians = rata
 rataan
 varians
+```
+
+## Soal 4
+### A. Fungsi Probabilitas dari Distribusi Chi-Square
+Diketahui nilaix = 2 dan v = 10. Kemudian dicari dengan bantuan fungsi dchisq
+```
+x = 2
+v = 10
+
+p <- dchisq(x, v)
+p
+```
+
+### B. Histogram dari DistribusiChi-Square dengan 100 data random
+Dapat menggunakan fungsi hist() seperti nomor sebelumnya
+```
+v = 10
+x = 100
+
+hist(rchisq(n, v), 
+     main = "Histogram Chi Square",
+     xlim = c(0,20),
+     col = "green",
+     xlab = "X",
+     ylab = "V",
+)
+```
+
+### C. Mencari nilai rataan dan varians dari distribusi Chi-Square
+```
+v = 10
+
+mean = v
+mean
+
+varians = 2*v
+varians
+```
+
+## Soal 5
+### A. Fungsi Probabilitas dari Distribusi Exponensial
+```
+lambda = 3
+
+set.seed(1)
+rnorm(1)
+
+p <- rexp(1,lambda)
+p
+```
+
+### B. Histogramdari Distribusi Exponensial untuk 10, 100, 1000 dan 10000 bilangan random
+```
+lambda = 3
+
+set.seed(1)
+hist(rexp(10,lambda), 
+     main = "Histogram 10 Random")
+hist(rexp(100,lambda), 
+     main = "Histogram 100 Random")
+hist(rexp(1000,lambda), 
+     main = "Histogram 1000 Random")
+hist(rexp(10000,lambda), 
+     main = "Histogram 10000 Random")
+```
+
+### C. Mencari nilai rataan dan varians dari distribusi Exponensial dengan n = 100 dan λ = 3
+```
+lambda = 3
+n = 100
+set.seed(1)
+
+rataan = mean(rexp(n,lambda))
+rataan
+
+varians = (sd(rexp(n,lambda)))^2
+varians
+```
+
+## Soal 6
+### A. Fungsi Probabilitas dari Distribusi Normal P(X1 ≤ x ≤ X2), hitungZ-Score Nya dan plot data generate randomnya dalam bentuk grafik. Petunjuk(gunakan fungsi plot()). 
+```
+n = 100
+mean = 50
+sd = 8
+
+set.seed(1)
+zscore = rnorm(n, mean, sd)
+disnorm
+summary(zscore)
+
+x1 = runif(1, min(zscore), mean)
+x2 = runif(1, mean, max(zscore))
+p1 = pnorm(x1, mean, sd)
+p2 = pnorm(x2, mean, sd)
+x1
+x2
+p1
+p2
+plot(zscore)
+```
+
+### B. Generate Histogramdari DistribusiNormal dengan breaks 50 dan format penamaan sesuai soal
+```
+breaks = 50
+
+hist(zscore, breaks,
+     main = "5025201109_Mohammad Firman Fardiansyah_Probstat_D_DNhistogram",
+     col = "green"
+)
+```
+
+### C. NilaiVarian (σ²) dari hasil generate randomnilaiDistribusiNormal
+```
+varians = (sd(zscore))^2
+varians
+```
