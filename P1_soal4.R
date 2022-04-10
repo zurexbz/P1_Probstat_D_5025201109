@@ -9,7 +9,7 @@ p
 v = 10
 x = 100
 
-hist(rchisq(n, v), 
+hist(rchisq(x, v), 
      main = "Histogram Chi Square",
      xlim = c(0,20),
      col = "green",
